@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+
+body {
+  background-image: url('/bgpattren.png');
+  background-repeat: repeat;
+   /* or repeat-x, repeat-y, no-repeat */
+  background-size: 1400px;  
+   background-blend-mode: overlay;
+     font-family: "Work Sans", sans-serif; /* 👈 Add this */
+}
+
+
+@theme{
+   --font-monsieur: "Monsieur La Doulaise", cursive;
+  --font-workSans: "Work Sans", sans-serif;
+
+  --color-darkGreen-800: #101511;
+  --color-primary-300:#6BFFDA;
+  --color-primary-500:#00E5C4;
+  --color-text-100:#E5FFF9;
+  --color-foreGround-700:#161F1C;
+}
+
+
+
+@layer utilities {
+ .border-red{
+  @apply border-2 border-red-500;
+ }
+
+ .title{
+  @apply text-2xl text-text-100;
+ }
+ .body-sm{
+  @apply py-2 text-text-100/40; 
+ }
+
+ 
+}
+
+
+
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.hero{
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heo-img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.trail-container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.trail-img{
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  pointer-events: none;
+
+}
+
+.trail-img .mask-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  will-change: clip-path;
+}
+
+.trail-img .mask-layer .image-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
